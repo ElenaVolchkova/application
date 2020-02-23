@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Персональные</title>
+</head>
+<body>
+<p>
+    <button><a href="titova">Назад</a></button>
+</p>
+<p>
+    <b>День</b>
+    <input type="datetime" name="created">
+</p>
+<p>
+<table border="1" width="100%" cellpadding="5">
+    <tr>
+        <th></th>
+        <th>Пн</th>
+        <th>Вт</th>
+        <th>Ср</th>
+        <th>Чт</th>
+        <th>Пт</th>
+        <th>Сб</th>
+    </tr>
+    {% for customer in customers %}
+    <tr>
+        <th><input type="text" size="25" value="{{customer.ward_id.ward}}"></th>
+        <th>
+            <button><a href="URL">+</a></button>
+        </th>
+        <th>
+            <button><a href="URL">+</a></button>
+        </th>
+        <th>
+            <button><a href="URL">+</a></button>
+        </th>
+        <th>
+            <button><a href="URL">+</a></button>
+        </th>
+        <th>
+            <button><a href="URL">+</a></button>
+        </th>
+        <th>
+            <button><a href="URL">+</a></button>
+        </th>
+    </tr>
+    {% endfor %}
+</p>
+
+</body>
+</html>
