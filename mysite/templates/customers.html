@@ -27,25 +27,46 @@
     <tr>
         <th><input type="text" size="25" value="{{customer.ward_id.ward}}"></th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/customers/plus" id="Form" method="post">{% csrf_token %}
+                <input type="hidden" value="{{customers.id}}" id="customers_id" name="customers_id">
+                <input type="submit" name="submit" value="+" onclick="this.style.display='none';">
+            </form>
         </th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/customers/plus" id="Form_1" method="post">
+                <input type="submit" name="submit" value="+">
+            </form>
         </th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/customers/plus" id="Form_2" method="post">
+                <input type="submit" name="submit" value="+">
+            </form>
         </th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/customers/plus" id="Form_3" method="post">
+                <input type="submit" name="submit"  value="+">
+            </form>
         </th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/customers/plus" id="Form_4" method="post">
+                <input type="submit" name="submit" value="+">
+            </form>
         </th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/customers/plus" id="Form_5" method="post">
+                <input type="submit" name="submit" value="+">
+            </form>
         </th>
     </tr>
     {% endfor %}
+    <tr>
+        <th>
+            <form action="/customers" id="form_name" method="post">
+                <input type="text" name="name" id="name">
+                <input type="submit" name="submit" id="submit" value="Add">
+            </form>
+        </th>
+    </tr>
 </p>
 
 </body>

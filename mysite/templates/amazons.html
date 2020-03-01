@@ -5,7 +5,9 @@
     <title>Групповые</title>
 </head>
 <body>
-<p><button><a href="titova">Назад</a></button></p>
+<p>
+    <button><a href="titova">Назад</a></button>
+</p>
 <p>
 <table border="1" width="100%" cellpadding="5">
     <tr>
@@ -19,19 +21,37 @@
     <tr>
         <th><input type="text" size="25" value="{{amazon.ward_id.ward}}"></th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/amazons/plus" id="form_1" method="post">{% csrf_token %}
+                <input type="hidden" value="{{amazon.id}}" id="amazon_id" name="amazon_id">
+                <input type="submit" name="submit" value="+" onclick="this.style.display='none';">
+            </form>
         </th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/amazons/plus" id="form_2" method="post">
+                <input type="submit" name="submit" value="+">
+            </form>
         </th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/amazons/plus" id="form_3" method="post">
+                <input type="submit" name="submit" value="+">
+            </form>
         </th>
         <th>
-            <button><a href="URL">+</a></button>
+            <form action="/amazons/plus" id="form_4" method="post">
+                <input type="submit" name="submit" value="+">
+            </form>
         </th>
     </tr>
     {% endfor %}
+    <tr>
+        <th>
+            <form action="/amazons" id="form_name" method="post">
+                <input type="text" name="name" id="name">
+                <input type="submit" name="submit" id="submit" value="Add">
+            </form>
+        </th>
+    </tr>
 </table>
+
 </body>
 </html>

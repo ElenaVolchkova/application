@@ -16,15 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mysite.titova.views import titova
-from mysite.customers.views import customers
-from mysite.athletes.views import athletes
-from mysite.amazons.views import amazons
-
+from mysite.customers.views import customers, customers_plus
+from mysite.athletes.views import athletes, athletes_plus
+from mysite.amazons.views import amazons, amazons_plus
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('titova', titova),
     path('athletes', athletes),
+    path('athletes/plus', athletes_plus),
     path('amazons', amazons),
-    path('customers', customers)
+    path('amazons/plus', amazons_plus),
+    path('customers', customers),
+    path('customers/plus', customers_plus)
 ]
