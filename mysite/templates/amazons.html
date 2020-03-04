@@ -23,7 +23,8 @@
         <th>
             <form action="/amazons/plus" id="form_1" method="post">{% csrf_token %}
                 <input type="hidden" value="{{amazon.id}}" id="amazon_id" name="amazon_id">
-                <input type="submit" name="submit" value="+" onclick="this.style.display='none';">
+                <input type="hidden" value="{{month.id}}" id="month_id" name="month_id">
+                <input type="submit" name="submit" value="+" {% if amazon.month_1 is True %}style="display='none';"{% endif %}>
             </form>
         </th>
         <th>

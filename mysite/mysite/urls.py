@@ -25,7 +25,7 @@ urlpatterns = [
     path('titova', titova),
     path('athletes', athletes),
     path('athletes/plus', athletes_plus),
-    path('amazons', amazons),
+    path('amazons', amazons, name='amazon-list'),
     path('amazons/plus', amazons_plus),
     path('customers', customers),
     path('customers/plus', customers_plus)

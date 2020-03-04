@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from mysite.athletes.models import Athletes
 
 
@@ -8,9 +9,7 @@ def athletes(request):
 
 
 def athletes_plus(request):
-    # print('athletes')
-    # import pdb; pdb.set_trace()
-    # return athletes(request)
-    # pass
-    my_objects = Athletes.objects.filter(default=True)
-    return render(request, 'athletes/plus.html', context={'athletes': my_objects })
+    # athlete_id = int(request.POST.get("athlete_id"))
+    # athlete = Athletes.objects.get(pk=athlete_id)
+    # return redirect(athletes)
+    pass

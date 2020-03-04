@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from mysite.amazons.models import Amazons
 
 
@@ -8,10 +9,15 @@ def amazons(request):
 
 
 def amazons_plus(request):
-    # plus = Amazons.objects.all()
-    # print(plus)
-    # import pdb; pdb.set_trace()
-    # return render(request, 'amazons/plus.html', context={'amazons': plus})
-    # return amazons(request)
-    my_objects = Amazons.objects.filter(default=True)
-    return render(request, 'amazons/plus.html', context={'amazons': my_objects })
+    amazon_id = int(request.POST.get("amazon_id"))
+
+    amazon = Amazons.objects.get(pk=amazon_id)
+
+    amazon.month_1 = True
+    amazon.save()
+    return redirect('amazon-list')
+
+
+# № тоже самое сделать для месяца и присваивать Екгу если месяц 1, 2,3... и т.д.
+#     № проверить в РЕЬД почему не отрисовывает
+#     № сделать, чтобы не добавляись снизу
