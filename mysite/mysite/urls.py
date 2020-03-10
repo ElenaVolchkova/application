@@ -23,10 +23,10 @@ from mysite.amazons.views import amazons, amazons_plus
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('titova', titova),
-    path('athletes', athletes),
+    path('athletes', athletes, name='athlete-list'),
     path('athletes/plus', athletes_plus),
     path('amazons', amazons, name='amazon-list'),
     path('amazons/plus', amazons_plus),
-    path('customers', customers),
+    path('customers', customers, name='customer-list'),
     path('customers/plus', customers_plus)
 ]

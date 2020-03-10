@@ -9,7 +9,10 @@ def athletes(request):
 
 
 def athletes_plus(request):
-    # athlete_id = int(request.POST.get("athlete_id"))
-    # athlete = Athletes.objects.get(pk=athlete_id)
-    # return redirect(athletes)
-    pass
+    athlete_id = int(request.POST.get("athlete_id"))
+    athlete = Athletes.objects.get(pk=athlete_id)
+    months = [athlete.month_1, athlete.month_2, athlete.month_3, athlete.month_4]
+    for month in months:
+        if month == True:
+            athlete.save()
+    return redirect('athlete-list')

@@ -30,43 +30,65 @@
     </tr>
     {% for athlete in athletes %}
     <tr>
-        <th><input type="text" size="30" value="{{athlete.ward_id.ward}}"></th>
-        <th>
-            <form action="athletes/plus" id="form_1" method="post">{% csrf_token %}
-                <input type="hidden" value="{{athletes.id}}" id="athletes_id" name="athletes_id">
-                <input type="submit" name="submit" value="+" onclick="this.style.display='none';">
-            </form>
-        </th>
-        <th>
-            <form action="athletes/plus" id="form_2" method="post">
-                <input type="submit" name="submit" value="+">
-            </form>
-        </th>
-        <th>
-            <form action="athletes/plus" id="form_3" method="post">
-                <input type="submit" name="submit" value="+">
-            </form>
-        </th>
-        <th>
-            <!--            <form action="athletes/plus" id="form_4" method="post">-->
-            <!--                <input type="submit" name="submit" value="+">-->
-            <!--            </form>-->
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="Check1">
-                <label class="form-check-label" for="Check1">
-                    Paid
-                </label>
-            </div>
-        </th>
+        <td><input type="text" size="30" value="{{athlete.ward_id.ward}}"></td>
+        <form action="/athletes/plus" id="form_1" method="post">{% csrf_token %}
+            <td>
+                <!--                <form action="athletes/plus" id="form_1" method="post">{% csrf_token %}-->
+                <!--                    <input type="hidden" value="{{athletes.id}}" id="athletes_id" name="athletes_id">-->
+                <!--                    <input type="submit" name="submit" value="+" onclick="this.style.display='none';">-->
+                <!--                </form>-->
+                <div class="form-check">
+                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
+                    <input type="checkbox" value="{{month.id}}" id="month_id1" name="month_id">
+                    <input type="submit" value="Save">
+                </div>
+            </td>
+            <td>
+                <!--                <form action="athletes/plus" id="form_2" method="post">-->
+                <!--                    <input type="submit" name="submit" value="+">-->
+                <!--                </form>-->
+                <div class="form-check">
+                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
+                    <input type="checkbox" value="{{month.id}}" id="month_id2" name="month_id">
+                    <input type="submit" value="Save">
+                </div>
+            </td>
+            <td>
+                <!--                <form action="athletes/plus" id="form_3" method="post">-->
+                <!--                    <input type="submit" name="submit" value="+">-->
+                <!--                </form>-->
+                <div class="form-check">
+                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
+                    <input type="checkbox" value="{{month.id}}" id="month_id3" name="month_id">
+                    <input type="submit" value="Save">
+                </div>
+            </td>
+            <td>
+                <!--            <form action="athletes/plus" id="form_4" method="post">-->
+                <!--                <input type="submit" name="submit" value="+">-->
+                <!--            </form>-->
+                <!--                <div class="form-check">-->
+                <!--                    <input class="form-check-input" type="checkbox" value="" id="Check1">-->
+                <!--                    <label class="form-check-label" for="Check1">-->
+                <!--                        Paid-->
+                <!--                    </label>-->
+                <!--                </div>-->
+                <div class="form-check">
+                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
+                    <input type="checkbox" value="{{month.id}}" id="month_id4" name="month_id">
+                    <input type="submit" value="Save">
+                </div>
+            </td>
+        </form>
     </tr>
     {% endfor %}
     <tr>
-        <th>
+        <td>
             <form action="/athletes" id="form_name" method="post">
                 <input type="text" name="name" id="name">
                 <input type="submit" name="submit" id="submit" value="Add">
             </form>
-        </th>
+        </td>
     </tr>
 
 </p>
