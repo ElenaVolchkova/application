@@ -10,7 +10,9 @@ def amazons(request):
 def amazons_plus(request):
     amazon_id = int(request.POST.get("amazon_id"))
     amazon = Amazons.objects.get(pk=amazon_id)
-    months = [amazon.month_1, amazon.month_2, amazon.month_3, amazon.month_4]
+    # months = [amazon.month_1, amazon.month_2, amazon.month_3, amazon.month_4]
+    month_id = int(request.POST.get("month_id"))
+    months = Amazons.objects.get(pk=month_id)
     for month in months:
         if month == True:
             amazon.save()

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-ru">
 <head>
@@ -5,17 +6,33 @@
     <title>Персональные</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/coreapi@latest/dist/coreapi.js"></script>
+
+<!--<script type="text/javascript" src='{% static "main.js" %}'></script>-->
+<script>$( document ).ready(function() {
+    $(".action-check").change(function() {
+        console.log(this);
+    });
+});
+
+
+
+</script>
 <p>
     <button><a href="titova">Назад</a></button>
 </p>
@@ -39,49 +56,35 @@
         <td><input type="text" size="25" value="{{customer.ward_id.ward}}"></td>
         <form action="/customers/plus" id="form_1" method="post">{% csrf_token %}
             <td>
-                <!--                <form action="/customers/plus" id="Form" method="post">{% csrf_token %}-->
-                <!--                    <input type="hidden" value="{{customers.id}}" id="customers_id" name="customers_id">-->
-                <!--                    <input type="submit" name="submit" value="+" onclick="this.style.display='none';">-->
-                <!--                </form>-->
+                <input type="hidden" value="{{customers.id}}" id="customers_id" name="customers_id">
+
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
-                    <input type="checkbox" value="{{day.id}}" id="day_id1" name="day_id">
-                    <input type="submit" value="Save">
+                    <input type="checkbox" class="action-check" value="{{day.id}}" id="day_id1" name="day_id">
                 </div>
             </td>
             <td>
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
-                    <input type="checkbox" value="{{day.id}}" id="day_id2" name="day_id">
-                    <input type="submit" value="Save">
+                    <input type="checkbox" class="action-check" value="{{day.id}}" id="day_id2" name="day_id">
                 </div>
             </td>
             <td>
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
-                    <input type="checkbox" value="{{day.id}}" id="day_id3" name="month_id">
-                    <input type="submit" value="Save">
+                    <input type="checkbox" class="action-check" value="{{day.id}}" id="day_id3" name="day_id">
                 </div>
             </td>
             <td>
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
-                    <input type="checkbox" value="{{day.id}}" id="day_id4" name="day_id">
-                    <input type="submit" value="Save">
+                    <input type="checkbox" class="action-check" value="{{day.id}}" id="day_id4" name="day_id">
                 </div>
             </td>
             <td>
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
-                    <input type="checkbox" value="{{day.id}}" id="day_id5" name="day_id">
-                    <input type="submit" value="Save">
+                    <input type="checkbox" class="action-check" value="{{day.id}}" id="day_id5" name="day_id">
                 </div>
             </td>
             <td>
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
-                    <input type="checkbox" value="{{day.id}}" id="day_id6" name="day_id">
-                    <input type="submit" value="Save">
+                    <input type="checkbox" class="action-check" value="{{day.id}}" id="day_id6" name="day_id">
                 </div>
             </td>
         </form>

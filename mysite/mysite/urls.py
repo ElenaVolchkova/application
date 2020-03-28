@@ -20,6 +20,15 @@ from mysite.customers.views import customers, customers_plus
 from mysite.athletes.views import athletes, athletes_plus
 from mysite.amazons.views import amazons, amazons_plus
 
+from django.conf import settings
+# from django.urls import path, re_path, include, reverse_lazy
+from django.conf.urls.static import static
+# from django.views.generic.base import RedirectView
+# from rest_framework.routers import DefaultRouter
+# from rest_framework.authtoken import views
+
+
+import pdb; pdb.set_trace()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('titova', titova),
@@ -28,5 +37,5 @@ urlpatterns = [
     path('amazons', amazons, name='amazon-list'),
     path('amazons/plus', amazons_plus),
     path('customers', customers, name='customer-list'),
-    path('customers/plus', customers_plus)
-]
+    path('customers/plus', customers_plus),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
