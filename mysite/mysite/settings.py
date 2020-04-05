@@ -35,8 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
     'django_extensions',
-    # 'bootstrap4',
     'mysite.titova',
     'mysite.athletes',
     'mysite.amazons',
@@ -130,34 +130,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-# os.path.join(BASE_DIR, "static"),
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 # import pdb; pdb.set_trace()
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# MEDIA_ROOT = join(os.path.dirname(BASE_DIR), 'media')
-#     MEDIA_URL = '/media/'
-#
-#     FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
-#
-#     TEMPLATES = [
-#         {
-#             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#             'DIRS': STATICFILES_DIRS,
-#             'APP_DIRS': True,
-#             'OPTIONS': {
-#                 'context_processors': [
-#                     'django.template.context_processors.debug',
-#                     'django.template.context_processors.request',
-#                     'django.contrib.auth.context_processors.auth',
-#                     'django.contrib.messages.context_processors.messages',
-#                 ],
-#             },
-#         },
-#     ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')

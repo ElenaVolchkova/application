@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from mysite.amazons.models import Amazons
+from mysite.ward.models import Ward
 
 
 def amazons(request):
@@ -16,4 +17,12 @@ def amazons_plus(request):
     for month in months:
         if month == True:
             amazon.save()
+    return redirect('amazon-list')
+
+def amazons_new(request):
+    name = request.POST.get("name")
+    ward = Ward.objects.create(ward=name)
+    ward.save()
+    ama = Amazons.objects.create(ward_id=ward)
+    ama.save()
     return redirect('amazon-list')

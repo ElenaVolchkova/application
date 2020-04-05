@@ -23,13 +23,8 @@
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/coreapi@latest/dist/coreapi.js"></script>
 
-<!--<script type="text/javascript" src='{% static "main.js" %}'></script>-->
-<script>$( document ).ready(function() {
-    $(".action-check").change(function() {
-        console.log(this);
-    });
-});
-</script>
+<script type="text/javascript" src='{% static "main.js" %}'></script>
+
 <p>
     <button><a href="titova">Назад</a></button>
 </p>
@@ -48,34 +43,23 @@
         <form action="/athletes/plus" id="form_1" method="post">{% csrf_token %}
             <td>
                 <input type="hidden" value="{{athletes.id}}" id="athletes_id" name="athletes_id">
-                <!--                    <input type="submit" name="submit" value="+" onclick="this.style.display='none';">-->
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
                     <input type="checkbox" value="{{month.id}}" id="month_id1" name="month_id">
-<!--                    <input type="submit" value="Save">-->
                 </div>
             </td>
             <td>
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
                     <input type="checkbox" value="{{month.id}}" id="month_id2" name="month_id">
-<!--                    <input type="submit" value="Save">-->
                 </div>
             </td>
             <td>
-                <!--                <form action="athletes/plus" id="form_3" method="post">-->
-                <!--                </form>-->
-                <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
+                                <div class="form-check">
                     <input type="checkbox" value="{{month.id}}" id="month_id3" name="month_id">
-<!--                    <input type="submit" value="Save">-->
                 </div>
             </td>
             <td>
                 <div class="form-check">
-                    <!--                    <input class="form-check-input" type="checkbox" value="" id="Check2">{% csrf_token %}-->
                     <input type="checkbox" value="{{month.id}}" id="month_id4" name="month_id">
-<!--                    <input type="submit" value="Save">-->
                 </div>
             </td>
         </form>
@@ -83,13 +67,12 @@
     {% endfor %}
     <tr>
         <td>
-            <form action="/athletes" id="form_name" method="post">
+            <form action="/athletes" id="form_name" method="post">{% csrf_token %}
                 <input type="text" name="name" id="name">
-                <input type="submit" name="submit" id="submit" value="Add">
+                <input type="submit" class="sub" name="submit" id="submit" value="Add">
             </form>
         </td>
     </tr>
-
 </p>
 </body>
 </html>

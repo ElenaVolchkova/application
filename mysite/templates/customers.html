@@ -23,16 +23,8 @@
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/coreapi@latest/dist/coreapi.js"></script>
 
-<!--<script type="text/javascript" src='{% static "main.js" %}'></script>-->
-<script>$( document ).ready(function() {
-    $(".action-check").change(function() {
-        console.log(this);
-    });
-});
+<script type="text/javascript" src='{% static "main.js" %}'></script>
 
-
-
-</script>
 <p>
     <button><a href="titova">Назад</a></button>
 </p>
@@ -92,9 +84,9 @@
     {% endfor %}
     <tr>
         <td>
-            <form action="/customers" id="form_name" method="post">
+            <form action="/customers" id="form_name" method="post">{% csrf_token %}
                 <input type="text" name="name" id="name">
-                <input type="submit" name="submit" id="submit" value="Add">
+                <input type="submit" class="sub" name="submit" id="submit" value="Add">
             </form>
         </td>
     </tr>
