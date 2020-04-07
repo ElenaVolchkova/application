@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from mysite.customers.models import Customers
+from mysite.ward.models import Ward
 
 
 def customers(request):
@@ -8,14 +9,6 @@ def customers(request):
     return render(request, 'customers.html', context={'customers': objects})
 
 def customers_plus(request):
-    # customer_id = int(request.POST.get("customer_id"))
-    # customer = Customers.objects.get(pk=customer_id)
-    # days = [customer.day_1, customer.day_2, customer.day_3, customer.day_4, customer.day_5, customer.day_6]
-    # for day in days:
-    #     if day == True:
-    #         customer.save()
-    # return redirect('customer-list')
-
     customer_id = int(request.POST.get("customer_id"))
     customer = Customers.objects.get(pk=customer_id)
     day_id = int(request.POST.get("day_id"))
@@ -23,4 +16,12 @@ def customers_plus(request):
     for day in days:
         if day == True:
             customer.save()
+    return redirect('customer-list')
+
+def customers_new(request):
+    name = request.POST.get("name")
+    ward = Ward.objects.create(ward=name)
+    ward.save()
+    objects = Customers.objects.create(ward_id=ward)
+    objects.save()
     return redirect('customer-list')

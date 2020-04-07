@@ -84,7 +84,7 @@
     {% endfor %}
     <tr>
         <td>
-            <form action="/customers" id="form_name" method="post">{% csrf_token %}
+            <form action="{% url 'customers-new' %}" id="form_name" method="post">{% csrf_token %}
                 <input type="text" name="name" id="name">
                 <input type="submit" class="sub" name="submit" id="submit" value="Add">
             </form>

@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mysite.titova.views import titova
-from mysite.customers.views import customers, customers_plus
-from mysite.athletes.views import athletes, athletes_plus
+from mysite.customers.views import customers, customers_plus, customers_new
+from mysite.athletes.views import athletes, athletes_plus, athletes_new
 from mysite.amazons.views import amazons, amazons_plus, amazons_new
 
 from django.conf import settings
@@ -39,4 +39,6 @@ urlpatterns = [
     path('customers', customers, name='customer-list'),
     path('customers/plus', customers_plus),
     path('amazons/new', amazons_new, name="amazons-new"),
+    path('customers/new', customers_new, name="customers-new"),
+    path('athletes/new', athletes_new, name="athletes-new"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
