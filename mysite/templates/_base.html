@@ -3,18 +3,13 @@
 {% load bootstrap4 %}
 
 {% block bootstrap4_title %}
-  {% block title %}{% endblock %} - Blog Example
+{% block title %}{% endblock %} - Blog Example
 {% endblock %}
 
 {% block bootstrap4_content %}
-
-
-{% endblock %}
-
-{% block bootstrap4_after_content %}
-  <div id="footer">
-    {% block footer %}
-    &copy; Copyright 2020 by <a href="http://mydomain.tld">myself</a>.
-    {% endblock %}
-  </div>
+<button><a href="titova">Назад</a></button>
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Name" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
 {% endblock %}

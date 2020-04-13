@@ -11,7 +11,6 @@ def amazons(request):
 def amazons_plus(request):
     amazon_id = int(request.POST.get("amazon_id"))
     amazon = Amazons.objects.get(pk=amazon_id)
-    # months = [amazon.month_1, amazon.month_2, amazon.month_3, amazon.month_4]
     month_id = int(request.POST.get("month_id"))
     months = Amazons.objects.get(pk=month_id)
     for month in months:
@@ -21,8 +20,11 @@ def amazons_plus(request):
 
 def amazons_new(request):
     name = request.POST.get("name")
-    ward = Ward.objects.create(ward=name)
-    ward.save()
-    ama = Amazons.objects.create(ward_id=ward)
-    ama.save()
-    return redirect('amazon-list')
+    if name not in [y.ward for y in Ward.objects.all()]:
+        ward = Ward.objects.create(ward=name)
+        ward.save()
+        ama = Amazons.objects.create(ward_id=ward)
+        ama.save()
+        return redirect('amazon-list')
+    else:
+        return redirect('amazon-list')

@@ -20,8 +20,11 @@ def customers_plus(request):
 
 def customers_new(request):
     name = request.POST.get("name")
-    ward = Ward.objects.create(ward=name)
-    ward.save()
-    objects = Customers.objects.create(ward_id=ward)
-    objects.save()
-    return redirect('customer-list')
+    if name not in [y.ward for y in Ward.objects.all()]:
+        ward = Ward.objects.create(ward=name)
+        ward.save()
+        objects = Customers.objects.create(ward_id=ward)
+        objects.save()
+        return redirect('customer-list')
+    else:
+        return redirect('customer-list')
