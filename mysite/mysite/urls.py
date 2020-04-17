@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mysite.titova.views import titova
-from mysite.customers.views import customers, customers_plus, customers_new
-from mysite.athletes.views import athletes, athletes_plus, athletes_new
-from mysite.amazons.views import amazons, amazons_plus, amazons_new
+from mysite.customers.views import customers, customers_plus, customers_new, customers_edit, customers_del
+from mysite.athletes.views import athletes, athletes_plus, athletes_new, athletes_edit, athletes_del #, athletes_update
+from mysite.amazons.views import amazons, amazons_plus, amazons_new, amazons_edit, amazons_del
 
 from django.conf import settings
 # from django.urls import path, re_path, include, reverse_lazy
@@ -41,4 +41,11 @@ urlpatterns = [
     path('amazons/new', amazons_new, name="amazons-new"),
     path('customers/new', customers_new, name="customers-new"),
     path('athletes/new', athletes_new, name="athletes-new"),
+    path('amazons/edit/<int:id>/', amazons_edit, name="amazons-edit"),
+    path('customers/edit/<int:id>/', customers_edit, name="customers-edit"),
+    path('athletes/edit/<int:id>/', athletes_edit),
+    path('athletes/del/<int:id>/', athletes_del),
+    # path('athletes', athletes_update, name="athlete-edit"),
+    path('customers/del/<int:id>/', customers_del, name="customers-del"),
+    path('amazons/del/<int:id>/', amazons_del),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

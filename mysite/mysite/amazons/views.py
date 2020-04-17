@@ -28,3 +28,23 @@ def amazons_new(request):
         return redirect('amazon-list')
     else:
         return redirect('amazon-list')
+
+def amazons_edit(request, id):
+    edit_name = Amazons.objects.get(id=id)
+    # if request.method == "POST":
+    if request.method == "GET":
+        edit_name.name = request.POST.get("name")
+        edit_name.save()
+        # return redirect('amazon-list')
+        return render(request, "Amazons_edit.html", context={"amazons": edit_name})
+    else:
+        return redirect('amazon-list')
+    # if request.method == "POST":
+        # import pdb; pdb.set_trace()
+        # return render(request, "Amazons_edit.html", context={"amazons": edit_name})
+
+
+def amazons_del(request, id):
+    del_name = Amazons.objects.get(id=id)
+    del_name.delete()
+    return redirect('amazon-list')

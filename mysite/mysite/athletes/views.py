@@ -29,3 +29,32 @@ def athletes_new(request):
         return redirect('athlete-list')
     else:
         return redirect('athlete-list')
+
+
+# def athletes_update(request, id):
+#     edit_name = Athletes.objects.get(id=id)
+#     if request.method == "GET":
+#         edit_name.name = request.POST.get("name")
+#         edit_name.save()
+#         return redirect('athlete-list')
+
+
+def athletes_edit(request, id):
+    edit_name = Athletes.objects.get(id=id)
+    # if request.method == "POST":
+    if request.method == "GET":
+        edit_name.name = request.POST.get("name")
+        edit_name.save()
+        # return redirect('athlete-list')
+        return render(request, "Athlete_edit.html", context={"athletes": edit_name})
+    else:
+        return redirect('athlete-list')
+    # if request.method == "POST":
+        # import pdb; pdb.set_trace()
+        # return render(request, "Athlete_edit.html", context={"athletes": edit_name})
+
+
+def athletes_del(request, id):
+    del_name = Athletes.objects.get(id=id)
+    del_name.delete()
+    return redirect('athlete-list')

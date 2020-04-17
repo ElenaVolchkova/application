@@ -28,3 +28,19 @@ def customers_new(request):
         return redirect('customer-list')
     else:
         return redirect('customer-list')
+
+def customers_edit(request, id):
+    edit_name = Customers.objects.get(id=id)
+    if request.method == "POST":
+        edit_name.name = request.POST.get("name")
+        edit_name.save()
+        return redirect('customer-list')
+    else:
+        # import pdb; pdb.set_trace()
+        return render(request, "Customer_edit.html", context={"customers": edit_name})
+
+
+def customers_del(request, id):
+    del_name = Customers.objects.get(id=id)
+    del_name.delete()
+    return redirect('customer-list')

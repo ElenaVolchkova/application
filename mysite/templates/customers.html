@@ -22,6 +22,7 @@
 <table border="1" cellspacing="0" cellpadding="2" height="100">
     <tr>
         <th></th>
+        <th></th>
         <th>Пн</th>
         <th>Вт</th>
         <th>Ср</th>
@@ -32,6 +33,11 @@
     {% for customer in customers %}
     <tr>
         <td><input type="text" size="25" value="{{customer.ward_id.ward}}"></td>
+        <td><form action="/customers/edit" method="post">{% csrf_token %}
+                    <a href="/customers/edit/{{customer.id}}">Edit</a>
+                    <a href="/customers/del/{{customer.id}}">Del</a>
+            </form>
+        </td>
         <form action="/customers/plus" id="form_1" method="post">{% csrf_token %}
             <td>
                 <input type="hidden" value="{{customers.id}}" id="customers_id" name="customers_id">
@@ -77,6 +83,5 @@
         </td>
     </tr>
 </p>
-
 </body>
 </html>

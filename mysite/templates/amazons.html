@@ -19,6 +19,7 @@
 <table border="1" cellspacing="0" cellpadding="2" height="100">
     <tr>
         <th></th>
+        <th></th>
         <th>1</th>
         <th>2</th>
         <th>3</th>
@@ -27,6 +28,10 @@
     {% for amazon in amazons %}
     <tr>
         <td><input type="text" size="25" value="{{amazon.ward_id.ward}}"></td>
+        <td><form action="/amazons/edit" method="post">{% csrf_token %}
+                    <a href="/amazons/edit/{{amazon.id}}">Edit</a>
+                    <a href="/amazons/del/{{amazon.id}}">Del</a>
+                </form></td>
 
         <form action="/amazons/plus" id="form_1" method="post">{% csrf_token %}
             <td>
